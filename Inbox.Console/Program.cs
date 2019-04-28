@@ -20,7 +20,7 @@ namespace Inbox.Console
 
             Folder inboxFolder = mailbox.Inbox;
             foreach (Message message in inboxFolder.Messages.Take(5))
-                Console.WriteLine("@ " + message.Subject + message.To.ToArray());
+                Console.WriteLine($"From {message.From.First().Name}: {message.Subject}");
         }
     }
 }

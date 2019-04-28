@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inbox.Business
 {
-    class Reminder
+    public class Reminder
     {
     }
 }

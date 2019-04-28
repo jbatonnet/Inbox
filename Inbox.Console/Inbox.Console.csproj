@@ -12,6 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Inbox.Business\Inbox.Business.csproj" />
     <ProjectReference Include="..\Inbox.Common\Inbox.Common.csproj" />
+    <ProjectReference Include="..\Inbox.Plugin.Gmail\Inbox.Plugin.Gmail.csproj" />
+    <ProjectReference Include="..\Inbox.Plugin.Imap\Inbox.Plugin.Imap.csproj" />
   </ItemGroup>
 
 </Project>
