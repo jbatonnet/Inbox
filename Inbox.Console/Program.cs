@@ -1,7 +1,8 @@
-﻿using System;
+﻿using System.IO;
 using System.Linq;
-using MailKit;
-using MailKit.Net.Imap;
+using Inbox.Business;
+using Inbox.Common.Model;
+using Newtonsoft.Json;
 
 namespace Inbox.Console
 {
@@ -11,17 +12,15 @@ namespace Inbox.Console
     {
         static void Main(string[] args)
         {
-            ImapClient imapClient = new ImapClient();
+            string mailboxSettingsFile = args.First();
+            string mailboxSettingsContent = File.ReadAllText(mailboxSettingsFile);
+            MailboxSettings mailboxSettings = JsonConvert.DeserializeObject<MailboxSettings>(mailboxSettingsContent);
 
-            imapClient.Connect("imap.gmail.com", 993, true);
+            Mailbox mailbox = new Mailbox(mailboxSettings);
 
-            FolderNamespace defaultNamespace = imapClient.PersonalNamespaces.First();
-            foreach (var folder in imapClient.GetFolders(defaultNamespace))
-            {
-                Console.WriteLine(folder.FullName);
-            }
-
-            ImapFolder f;
+            Folder inboxFolder = mailbox.Inbox;
+            foreach (Message message in inboxFolder.Messages.Take(5))
+                Console.WriteLine("@ " + message.Subject + message.To.ToArray());
         }
     }
 }

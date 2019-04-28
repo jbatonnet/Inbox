@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Inbox.Common.Plugin
+namespace Inbox.Business
 {
-    public abstract class Plugin
+    public class Bundle
     {
     }
 }
