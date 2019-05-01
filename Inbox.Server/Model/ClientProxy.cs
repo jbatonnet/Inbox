@@ -6,7 +6,7 @@ using Inbox.Common.Model;
 
 namespace Inbox.Server.Model
 {
-    public class ClientProxy<T> : Client where T : Client
+    /*public class ClientProxy<T> : Client where T : Client
     {
-    }
+    }*/
 }

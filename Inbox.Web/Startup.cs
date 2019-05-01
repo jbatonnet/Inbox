@@ -11,7 +11,7 @@ namespace Inbox.Web
 
         public void Configure(IComponentsApplicationBuilder app)
         {
-            app.AddComponent<App>("app");
+            //app.AddComponent<App>("app");
         }
     }
 }
